@@ -39,7 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $value ? json_decode($value, true) : null;
     }
-    
+
     /**
      * Set the user's class routine.
      */

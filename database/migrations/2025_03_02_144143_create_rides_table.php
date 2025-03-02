@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ride_passengers', function (Blueprint $table) {
+        Schema::create('rides', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ride_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-            
-            // Ensure a user can only join a ride once
-            $table->unique(['ride_id', 'user_id']);
         });
     }
 
@@ -27,7 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ride_passengers');
+        Schema::dropIfExists('rides');
     }
 };
-
